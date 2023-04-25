@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="utf-8">
+	<title>Ajout des Departements</title>
+</head>
+
+<body>
+	<div layout:fragment="Mycontent">
+		<div class="container mt-5">
+			<div class="card">
+				<div class="card-header">
+					Modifier des Departements
+				</div>
+				<div class="card-body">
+					<form th:action="@{saveDepartement}" method="post">
+						<div class="form-group">
+							<label class="control-label" hidden>ID Departement :</label>
+							<input type="hidden" name="idDepartement" class="form-control th:value="
+								${departement.idDepartement}" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Nom Departement :</label>
+							<input type="text" name="nomDepartement" class="form-control"
+								th:value="${departement.nomDepartement}" />
+							<span th:errors=${departement.nomDepartement} class="text-danger">
+							</span>
+						</div>
+						<div class="form-group">
+							<label class="control-label"> description :</label>
+							<input type="text" name="description" class="form-control"
+								th:value="${departement.description}" />
+							<span th:errors=${=departement.=description} class="text-danger">
+							</span>
+						</div>
+						<div>
+							<button type="submit" class="btn btn-primary">Valider</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
